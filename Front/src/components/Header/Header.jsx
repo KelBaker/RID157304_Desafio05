@@ -6,12 +6,14 @@ import "./index.scss";
 function Header() {
   return (
     <div className='header'>
-        <Link to="/"><img src={logo}/></Link>
+        <Link to="/"><img src={logo} alt="Logo" /></Link>
+        
         <ul>
-            <li><Link to="/livros">Livros</Link></li>
-        </ul>        
+            <li><Link to="/livros">Listar livros</Link></li>
+            <li><Link to="/livros/cadastro">Cadastrar livros</Link></li>
+        </ul>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

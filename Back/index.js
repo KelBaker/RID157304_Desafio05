@@ -1,9 +1,11 @@
 const express = require('express');
 const { livroModel } = require('./src/models/book'); 
 const connection = require('./src/config/database'); 
-const Counter = require('./src/models/counter'); 
+const cors = require('cors');
 const app = express();
 
+
+app.use(cors());
 app.use(express.json()); 
 
 
@@ -54,22 +56,14 @@ app.post('/livros', async (req, res) => {
     }
 
     
-    const counter = await Counter.findByIdAndUpdate(
-      { _id: 'livroId' },
-      { $inc: { seq: 1 } },
-      { new: true, upsert: true }
-    );
-
-    
-    const novoLivro = new livroModel({ 
-      _id: counter.seq, 
-      titulo, 
-      numeroPaginas, 
-      isbn, 
-      editora 
+    const novoLivro = new livroModel({
+      titulo,
+      numeroPaginas,
+      isbn,
+      editora
     });
 
-    await novoLivro.save(); 
+    await novoLivro.save();
     return res.status(201).json(novoLivro); 
   } catch (error) {
     console.error(error);
