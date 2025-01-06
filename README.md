@@ -112,10 +112,14 @@ Para rodar o backend, utilize o seguinte comando:
 
 Com o seguinte script no `package.json`:
 
-"scripts": {
-  "start": "node index.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
+```json
+{
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
+```
 
 #### Front
 Para rodar o frontend, utilize o seguinte comando:
@@ -124,10 +128,12 @@ Para rodar o frontend, utilize o seguinte comando:
 
 Com o seguinte script no `package.json`:
 
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-  "preview": "vite preview"
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  }
 }
-
